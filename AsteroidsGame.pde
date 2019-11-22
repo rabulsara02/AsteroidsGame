@@ -1,13 +1,19 @@
 Spaceship bob = new Spaceship();
 Star [] bill ;
+Asteroid [] juno;
 public void setup() 
 {
 	background(0);
 	size(500,500);
 	bill = new Star[500];
+	juno = new Asteroid[20];
 	for(int i = 0; i < bill.length; i++)
 	{
 		bill[i] = new Star();
+	}
+	for(int i = 0; i < juno.length; i++)
+	{
+		juno[i] = new Asteroid();
 	}
 }
 public void draw() 
@@ -19,6 +25,12 @@ public void draw()
  	}
 	bob.show();
 	bob.move();
+	for(int i =0; i < juno.length; i++)
+	{
+		juno[i].show();
+		juno[i].move();
+	}
+
 	
 }
 public void keyPressed()
