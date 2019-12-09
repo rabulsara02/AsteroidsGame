@@ -1,12 +1,16 @@
 Spaceship bob = new Spaceship();
 Star [] bill ;
 Asteroid [] juno;
+boolean wPressed = false;
+boolean aPressed = false;
+boolean dPressed = false;
+boolean sPressed = false;
 public void setup() 
 {
 	background(0);
-	size(500,500);
+	size(700,700);
 	bill = new Star[500];
-	juno = new Asteroid[20];
+	juno = new Asteroid[30];
 	for(int i = 0; i < bill.length; i++)
 	{
 		bill[i] = new Star();
@@ -31,33 +35,89 @@ public void draw()
 		juno[i].move();
 	}
 
+	if(wPressed == true)
+	{
+		bob.setDirectionX(0);
+		bob.setDirectionY(0);
+		bob.accelerate(4);
+		//PUT AN ELSE SLOW DOWN HERE
+	}
+	if(aPressed == true)
+	{
+		bob.turn(-5);
+	}
+	if(sPressed == true)
+	{
+		bob.setDirectionX(0);
+		bob.setDirectionY(0);
+		bob.accelerate(-4);
+	}
+	if(dPressed == true)
+	{
+		bob.turn(5);
+	}
+
+
 	
 }
+
+public void keyReleased()
+{
+
+	//MOVE FUNCTIONS
+	if(key == 'w')
+  {
+    wPressed = false;
+  }
+
+  if (key == 'a')
+  {
+    aPressed = false;
+  }
+
+  if (key == 'd')
+  {
+    dPressed = false;
+  }
+
+  if (key == 's')
+  {
+    sPressed = false;
+  }
+
+}
+
 public void keyPressed()
 {
-	if(key == 'w' || keyCode == UP)
+
+	//MOVE FUNCTIONS
+	if(key == 'w')
 	{
-		bob.accelerate(1);
+		wPressed = true;
+		//bob.accelerate(1);
 	}
 	if(key == 'a')
 	{
-		bob.turn(-10);
+		aPressed = true;
+		//bob.turn(-10);
 	}
 	if(key == 's')
 	{
-		bob.accelerate(-1);
+		sPressed = true;
+		//bob.accelerate(-1);
 	}
 	if(key == 'd')
 	{
-		bob.turn(10);
+		dPressed = true;
+		//bob.turn(10);
 	}
+		
 	if(key == 'r')
 	{
-		 bob.setCenterX((int)(Math.random() * 500) + 1);
-		 bob.setCenterY((int)(Math.random() * 500) + 1);
+		 bob.setCenterX((int)(Math.random() * 700) + 1);
+		 bob.setCenterY((int)(Math.random() * 700) + 1);
 		 bob.setDirectionX(0);
 		 bob.setDirectionY(0);
 		 bob.setPointDirection((int)(Math.random() * 360));
 	}
 }
-
