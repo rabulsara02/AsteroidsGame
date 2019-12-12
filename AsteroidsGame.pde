@@ -1,6 +1,7 @@
 Spaceship bob = new Spaceship();
 Star [] bill ;
 Asteroid [] juno;
+//ArrayList <Integer> graves = new Bullet <Integer>();
 boolean wPressed = false;
 boolean aPressed = false;
 boolean dPressed = false;
@@ -19,6 +20,7 @@ public void setup()
 	{
 		juno[i] = new Asteroid();
 	}
+
 }
 public void draw() 
 {
@@ -29,6 +31,7 @@ public void draw()
  	}
 	bob.show();
 	bob.move();
+	
 	for(int i =0; i < juno.length; i++)
 	{
 		juno[i].show();
@@ -39,7 +42,7 @@ public void draw()
 	{
 		bob.setDirectionX(0);
 		bob.setDirectionY(0);
-		bob.accelerate(4);
+		bob.accelerate(6);
 		//PUT AN ELSE SLOW DOWN HERE
 	}
 	if(aPressed == true)
@@ -50,7 +53,7 @@ public void draw()
 	{
 		bob.setDirectionX(0);
 		bob.setDirectionY(0);
-		bob.accelerate(-4);
+		bob.accelerate(-6);
 	}
 	if(dPressed == true)
 	{
@@ -65,22 +68,22 @@ public void keyReleased()
 {
 
 	//MOVE FUNCTIONS
-	if(key == 'w')
+	if(key == 'w' || key == 'W')
   {
     wPressed = false;
   }
 
-  if (key == 'a')
+  if (key == 'a' || key == 'A')
   {
     aPressed = false;
   }
 
-  if (key == 'd')
+  if (key == 'd' || key == 'D')
   {
     dPressed = false;
   }
 
-  if (key == 's')
+  if (key == 's' || key == 'S')
   {
     sPressed = false;
   }
@@ -91,23 +94,23 @@ public void keyPressed()
 {
 
 	//MOVE FUNCTIONS
-	if(key == 'w')
+	if(key == 'w' || key == 'W')
 	{
 		wPressed = true;
 		//bob.accelerate(1);
 	}
-	if(key == 'a')
+	if(key == 'a' || key == 'A')
 	{
 		aPressed = true;
 		//bob.turn(-10);
 	}
-	if(key == 's')
+	if(key == 's' || key == 'S')
 	{
 		sPressed = true;
 		//bob.accelerate(-1);
 	}
-	if(key == 'd')
-	{
+	if(key == 'd' || key == 'D')
+	{ 
 		dPressed = true;
 		//bob.turn(10);
 	}

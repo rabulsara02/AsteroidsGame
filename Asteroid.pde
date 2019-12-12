@@ -35,9 +35,6 @@ class Asteroid extends Floater
     	yCorners[9] = -7;
 	}
 
-	
-	
-
 	public void setDirectionX(double x)
 	{
 		myDirectionX = x;
@@ -57,9 +54,6 @@ class Asteroid extends Floater
 	public void setPointDirection(double myDirection)
 	{
 		myPointDirection = myDirection;
-	}
-	public void getCenterX(double theX) {
-		myCenterX = theX;
 	}
 	
 }
