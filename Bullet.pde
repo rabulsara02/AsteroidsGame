@@ -1,6 +1,6 @@
 class Bullet extends Floater
 {
-	public Bullet(Spaceship theShip) 
+	public Bullet(Spaceship bob) 
 	{
 		myCenterX = bob.getCenterX();
 		myCenterY = bob.getCenterY();
@@ -9,11 +9,10 @@ class Bullet extends Floater
 		myPointDirection = bob.getPointDirection();
 	}
 
-
 	public void show() 
 	{
 		fill(255,255,255);
 		noStroke();
-		ellipse(30, 30, (float)bob.getCenterX(), (float)bob.getCenterY());
+		ellipse((float)myCenterX, (float)myCenterY, 30, 30);
 	}
 }

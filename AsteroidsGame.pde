@@ -1,11 +1,12 @@
 Spaceship bob = new Spaceship();
 Star [] bill ;
 Asteroid [] juno;
-//ArrayList <Integer> graves = new Bullet <Integer>();
+ArrayList <Bullet> boom = new ArrayList <Bullet>();
 boolean wPressed = false;
 boolean aPressed = false;
 boolean dPressed = false;
 boolean sPressed = false;
+boolean spaceBarPressed = false;
 public void setup() 
 {
 	background(0);
@@ -37,13 +38,17 @@ public void draw()
 		juno[i].show();
 		juno[i].move();
 	}
-
+/*	for(int i = 0; i < 10; i++)
+	{
+		boom.get(i).show();
+		boom.get(i).move();
+	}
+*/
 	if(wPressed == true)
 	{
 		bob.setDirectionX(0);
 		bob.setDirectionY(0);
-		bob.accelerate(6);
-		//PUT AN ELSE SLOW DOWN HERE
+		bob.accelerate(4.5);
 	}
 	if(aPressed == true)
 	{
@@ -53,11 +58,15 @@ public void draw()
 	{
 		bob.setDirectionX(0);
 		bob.setDirectionY(0);
-		bob.accelerate(-6);
+		bob.accelerate(-4.5);
 	}
 	if(dPressed == true)
 	{
 		bob.turn(5);
+	}
+	if(spaceBarPressed == true)
+	{
+		boom.add(new Bullet(bob));
 	}
 
 
@@ -87,6 +96,10 @@ public void keyReleased()
   {
     sPressed = false;
   }
+  if (key == 'v')
+  {
+  	spaceBarPressed = false;
+  }
 
 }
 
@@ -114,6 +127,10 @@ public void keyPressed()
 		dPressed = true;
 		//bob.turn(10);
 	}
+	if (key == 'v')
+  	{
+  		spaceBarPressed = true;
+  	}
 		
 	if(key == 'r')
 	{
@@ -122,5 +139,12 @@ public void keyPressed()
 		 bob.setDirectionX(0);
 		 bob.setDirectionY(0);
 		 bob.setPointDirection((int)(Math.random() * 360));
+	}
+}
+private void showBullets()
+{
+	for(int i = 0; i<boom.size(); i++)
+	{
+		boom.get(i).show();
 	}
 }
